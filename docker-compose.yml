@@ -1,0 +1,16 @@
+name: learning_oauth
+
+services:
+  app:
+    image: learning_oauth
+    build:
+      context: .
+      target: environ
+    init: true
+    tty: true
+    user: '1000'
+    volumes:
+      - .:/usr/src/app
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - 8888:8888
